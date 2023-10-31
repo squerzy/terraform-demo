@@ -19,3 +19,14 @@ module "web2" {
 output "web2_public_ip" {
   value = module.web2.public_ip
 }
+
+module "web3" {
+  source = "./modules/web-instance"
+  env = "prod"
+  vpc_id = aws_vpc.demo_vpc.id
+  subnet_id = aws_subnet.demo_subnet_1a.id
+}
+
+output "web3_public_ip" {
+  value = module.web3.public_ip
+}
